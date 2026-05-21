@@ -33,3 +33,68 @@ ml file:
 get all features
 ??
 return shape probability distribution
+
+
+
+
+
+
+detailed idea:
+
+project/
+
+main.py
+    choose mode (rb/ml)
+    initialize camera
+    initialize landmark detector
+
+    while True:
+        frame = get_frame()
+        faces = detect_face(frame)
+
+        for face in faces:
+            landmarks = extract_landmarks(face)
+
+            if mode == "rb":
+                shape = rb.classify(landmarks)
+
+            else:
+                shape = ml.classify(landmarks)
+
+            overlay(shape)
+
+        display(frame)
+
+
+modules/
+
+detector.py
+    detect_face(frame)
+    extract_landmarks(face)
+    return landmarks
+
+
+rb.py
+    choose important points
+    calculate proportions
+    classify
+    return shape
+
+
+ml.py
+    preprocess landmarks
+    load model
+    predict probabilities
+    return shape
+
+
+overlay.py
+    draw landmarks (optional debug)
+    draw bounding box
+    draw face shape label
+
+
+config.py
+    thresholds
+    landmark indices
+    constants
