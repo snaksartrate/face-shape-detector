@@ -7,3 +7,29 @@ step 3: locate specific facial features
 step 4: compute ratios and determine shape
 step 5: write on the captured image with a textbox near the face that displays the face shape
 step 6: display
+
+
+
+project working:
+
+main file:
+choose mode (rb/ml)
+while true:
+    get input
+    locate face
+    extract all features
+    call classification
+    overlay output on image
+    display image
+
+rb file:
+get all features
+choose important
+calculate proportions
+classify
+return
+
+ml file:
+get all features
+??
+return shape probability distribution
